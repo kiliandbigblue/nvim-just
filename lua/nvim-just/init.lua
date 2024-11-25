@@ -1,6 +1,6 @@
 local M = {}
 
-local telescope = require("nvim-just.telescope")
+local select = require("nvim-just.select")
 
 function M.setup(opts)
 	opts = opts or {}
@@ -41,7 +41,7 @@ function M.setup(opts)
 
 	-- Add JustSelect command
 	vim.api.nvim_create_user_command("JustSelect", function()
-		telescope.JustSelect({ justfile = justfile_path })
+		select.JustSelect({ justfile = justfile_path })
 	end, {})
 end
 
