@@ -1,5 +1,7 @@
 local M = {}
 
+local telescope = require("nvim-just.telescope")
+
 function M.setup(opts)
 	opts = opts or {}
 	local justfile_path = opts.justfile
@@ -36,6 +38,11 @@ function M.setup(opts)
 		nargs = "*",
 		complete = "file",
 	})
+
+	-- Add JustSelect command
+	vim.api.nvim_create_user_command("JustSelect", function()
+		telescope.JustSelect({ justfile = justfile_path })
+	end, {})
 end
 
 return M
