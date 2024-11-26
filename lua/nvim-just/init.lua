@@ -25,6 +25,10 @@ function M.setup(opts)
 			row = math.floor((height - win_height) / 2),
 			style = "minimal",
 			border = "rounded",
+			win_opts = {
+				winblend = vim.o.winblend, -- Use existing window blend setting
+				winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
+			},
 		})
 
 		vim.fn.termopen(cmd, {
